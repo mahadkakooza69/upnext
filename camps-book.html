@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a Camp | Up NEXT Kids Coding School</title>
+<meta name="description" content="Reserve a place on an Up NEXT holiday coding camp for ages 5–13+. Half-day and full-day options in Kampala. Confirmation within one working day." />
+<link rel="canonical" href="https://upnext.ug/camps-book.html" />
+<meta name="robots" content="noindex,follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Up <span>NEXT</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="camps.html" class="active">Camps</a>
+      <a href="about.html">About</a>
+      <a href="schedule.html">Schedule &amp; Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Book Free Trial</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="crumbs">
+      <a href="index.html">Home</a><span>/</span>
+      <a href="camps.html">Camps</a><span>/</span>
+      Book
+    </p>
+    <span class="eyebrow">Reserve a place</span>
+    <h1>Book a holiday camp</h1>
+    <p class="lead">
+      Fill in the form below and we'll confirm your place within one working day,
+      along with payment details and a camp information pack.
+    </p>
+  </div>
+</div>
+
+<section style="padding-top:48px">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:start">
+
+      <!-- ==================== FORM ==================== -->
+      <div class="form-card">
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+        <form id="bookingForm"
+              action="https://formspree.io/f/mqpeedez"
+              method="POST">
+
+          <h3 style="margin-bottom:20px">Parent / guardian</h3>
+
+          <div class="field">
+            <label for="parentName">Full name <span class="req">*</span></label>
+            <input type="text" id="parentName" name="parent_name" required />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" required
+                     placeholder="+256 7XX XXX XXX" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="emergency">Emergency contact (name &amp; number)</label>
+            <input type="text" id="emergency" name="emergency_contact"
+                   placeholder="Someone we can reach during camp hours" />
+          </div>
+
+          <h3 style="margin:32px 0 20px">Your child</h3>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="childName">Child's full name <span class="req">*</span></label>
+              <input type="text" id="childName" name="child_name" required />
+            </div>
+            <div class="field">
+              <label for="childAge">Age <span class="req">*</span></label>
+              <select id="childAge" name="child_age" required>
+                <option value="">Select age…</option>
+                <option>5</option><option>6</option><option>7</option>
+                <option>8</option><option>9</option><option>10</option>
+                <option>11</option><option>12</option><option>13</option>
+                <option>14</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="school">School (optional)</label>
+            <input type="text" id="school" name="school" />
+          </div>
+
+          <div class="field">
+            <label for="medical">Allergies, medical needs or anything we should know</label>
+            <textarea id="medical" name="medical"
+                      placeholder="Allergies, dietary requirements, learning support needs, anxieties…"></textarea>
+          </div>
+
+          <h3 style="margin:32px 0 20px">Camp details</h3>
+
+          <div class="field">
+            <label for="camp">Which camp? <span class="req">*</span></label>
+            <select id="camp" name="camp" required>
+              <option value="">Select a camp…</option>
+              <option>Junior Coders Camp (Ages 5–7)</option>
+              <option>Scratch Game Camp (Ages 7–9)</option>
+              <option>Python Pioneers Camp (Ages 9–11)</option>
+              <option>Web Design Camp (Ages 10–13)</option>
+              <option>Roblox &amp; Minecraft Modding (Ages 9–13)</option>
+              <option>AI &amp; Robotics Camp (Ages 11–13+)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="week">Which week? <span class="req">*</span></label>
+            <select id="week" name="week" required>
+              <option value="">Select a session…</option>
+              <optgroup label="Easter Holidays">
+                <option>Week 1 — [Dates]</option>
+                <option>Week 2 — [Dates]</option>
+              </optgroup>
+              <optgroup label="Mid-Year Holidays">
+                <option>Week 1 — [Dates]</option>
+                <option>Week 2 — [Dates]</option>
+                <option>Week 3 — [Dates]</option>
+              </optgroup>
+              <optgroup label="Christmas Holidays">
+                <option>Week 1 — [Dates]</option>
+                <option>Week 2 — [Dates]</option>
+              </optgroup>
+              <optgroup label="Half-Term Breaks">
+                <option>Week 1 — [Dates]</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Session length <span class="req">*</span></label>
+            <div class="radio-row">
+              <label class="radio-card">
+                <input type="radio" name="session_length" value="Half-day" required />
+                <span class="rc-inner">
+                  <span class="rc-title">Half-day</span>
+                  <span class="rc-sub">9:00 am – 12:30 pm</span>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="session_length" value="Full-day" />
+                <span class="rc-inner">
+                  <span class="rc-title">Full-day</span>
+                  <span class="rc-sub">9:00 am – 3:30 pm</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="siblings">Booking for more than one child?</label>
+            <textarea id="siblings" name="siblings"
+                      placeholder="Add the other child's name and age here — sibling discount applies automatically."></textarea>
+          </div>
+
+          <h3 style="margin:32px 0 20px">Consent</h3>
+
+          <div class="field">
+            <label class="consent">
+              <input type="checkbox" name="consent_terms" value="Yes" required />
+              <span>
+                I confirm the information above is correct and I accept the camp
+                terms and cancellation policy. <span class="req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="field">
+            <label class="consent">
+              <input type="checkbox" name="consent_photos" value="Yes" />
+              <span>
+                I give permission for photographs of my child to be taken and
+                used in Up NEXT promotional materials.
+              </span>
+            </label>
+          </div>
+
+          <div class="field">
+            <label class="consent">
+              <input type="checkbox" name="consent_medical" value="Yes" required />
+              <span>
+                I consent to Up NEXT staff administering basic first aid if
+                needed, and contacting emergency services in a serious situation.
+                <span class="req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- Honeypot -->
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+
+          <!-- Subject line shown in the Formspree inbox -->
+          <input type="hidden" name="_subject" value="New camp booking — Up NEXT" />
+
+          <button type="submit" class="btn btn-primary btn-block"
+                  style="margin-top:24px">
+            Submit Booking Request
+          </button>
+
+          <p class="form-note">
+            <strong style="color:var(--ink)">This is a booking request, not a payment.</strong>
+            We'll confirm availability within one working day and send payment
+            instructions. Your place is held for 48 hours.
+          </p>
+        </form>
+      </div>
+
+      <!-- ==================== SIDEBAR ==================== -->
+      <div>
+
+        <div class="card" style="margin-bottom:24px">
+          <div class="icon">💰</div>
+          <h3>Camp fees</h3>
+          <p style="font-size:.9rem;margin-top:6px">Per child, per week, in UGX.</p>
+
+          <ul class="summary-list">
+            <li><span>Junior Coders (5–7)</span><strong>250k – 400k</strong></li>
+            <li><span>Scratch Game (7–9)</span><strong>250k – 450k</strong></li>
+            <li><span>Python Pioneers (9–11)</span><strong>280k – 480k</strong></li>
+            <li><span>Web Design (10–13)</span><strong>300k – 500k</strong></li>
+            <li><span>Roblox &amp; Minecraft (9–13)</span><strong>300k – 500k</strong></li>
+            <li><span>AI &amp; Robotics (11–13+)</span><strong>350k – 550k</strong></li>
+          </ul>
+
+          <p style="font-size:.82rem;margin-top:16px;color:var(--body)">
+            Half-day rates shown. Full-day rates are roughly double.
+            Final price confirmed on booking.
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom:24px">
+          <div class="icon y">🎁</div>
+          <h3>Discounts</h3>
+          <ul class="summary-list">
+            <li><span>Early-bird</span><strong>10% off</strong></li>
+            <li><span>Sibling</span><strong>15% off</strong></li>
+            <li><span>Multi-week</span><strong>10% off</strong></li>
+          </ul>
+          <p style="font-size:.82rem;margin-top:16px;color:var(--body)">
+            Discounts are applied automatically. Early-bird applies when booking
+            more than 3 weeks before camp starts.
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom:24px">
+          <div class="icon c">📦</div>
+          <h3>What's included</h3>
+          <ul style="list-style:none;font-size:.88rem;margin-top:14px;display:flex;flex-direction:column;gap:9px">
+            <li>✅ All equipment provided</li>
+            <li>✅ Morning snack and juice</li>
+            <li>✅ Hot lunch (full-day only)</li>
+            <li>✅ Camp t-shirt</li>
+            <li>✅ Certificate and badge</li>
+            <li>✅ Friday showcase for parents</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="icon">💬</div>
+          <h3>Prefer to talk?</h3>
+          <p style="font-size:.9rem;margin:10px 0 18px">
+            Not sure which camp fits your child? Message us and we'll recommend one.
+          </p>
+          <a href="https://wa.me/256XXXXXXXXX" class="btn btn-primary btn-block"
+             style="margin-bottom:10px">WhatsApp Us</a>
+          <a href="tel:+256XXXXXXXXX" class="btn btn-ghost btn-block">Call Us</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="font-size:1.25rem">Up <span>NEXT</span></a>
+        <p style="margin-top:14px;font-size:.92rem;max-width:34ch">
+          Kids coding school for ages 5–13+. Code. Create. Play.
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html#why">Why Us</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="camps.html">Camps</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="schedule.html">Schedule &amp; Pricing</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>[Address, Kampala]</li>
+          <li><a href="tel:+256XXXXXXXXX">+256 XXX XXX XXX</a></li>
+          <li><a href="mailto:hello@upnext.ug">hello@upnext.ug</a></li>
+          <li><a href="https://wa.me/256XXXXXXXXX">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Up NEXT Kids Coding School. All rights reserved.</span>
+      <span>Made in Kampala 🇺🇬</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script>
+/* AJAX form submit so the user stays on the page */
+(function () {
+  const form = document.getElementById('bookingForm');
+  const status = document.getElementById('formStatus');
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.className = 'form-status ok';
+        status.innerHTML =
+          '✅ <strong>Booking request received.</strong> We\'ll confirm your place ' +
+          'within one working day, along with payment details and the camp ' +
+          'information pack. Your place is held for 48 hours.';
+        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        const json = await res.json().catch(() => ({}));
+        status.className = 'form-status err';
+        status.textContent =
+          (json.errors && json.errors[0] && json.errors[0].message) ||
+          'Something went wrong. Please try again or WhatsApp us directly.';
+      }
+    } catch (err) {
+      status.className = 'form-status err';
+      status.textContent =
+        'Network error. Please check your connection or WhatsApp us directly.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
