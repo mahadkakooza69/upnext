@@ -244,12 +244,20 @@ details p{padding:18px 24px 22px;font-size:.93rem}
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:36px;box-shadow:var(--shadow);
 }
+
+/* Field labels — scoped so they don't leak into radio cards or consent rows */
 .field{margin-bottom:20px}
-.field label{
+.field > label:not(.consent):not(.radio-card){
   display:block;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:7px;
 }
-.field label .req{color:var(--coral)}
-.field input,.field select,.field textarea{
+.field > label:not(.consent):not(.radio-card) .req{color:var(--coral)}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="number"],
+.field select,
+.field textarea{
   width:100%;padding:13px 16px;border:1.5px solid var(--line);
   border-radius:11px;font-family:inherit;font-size:.95rem;color:var(--ink);
   background:#fff;transition:.18s;
@@ -260,6 +268,7 @@ details p{padding:18px 24px 22px;font-size:.93rem}
 .field textarea{resize:vertical;min-height:120px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:640px){.field-row{grid-template-columns:1fr;gap:0}}
+
 .hint{font-size:.82rem;color:var(--body);margin-top:6px}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
 
@@ -280,36 +289,83 @@ details p{padding:18px 24px 22px;font-size:.93rem}
   border:1px solid rgba(255,92,92,.3);color:#B3261E;
 }
 
-/* Radio cards (booking form) */
-.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:520px){.radio-row{grid-template-columns:1fr}}
-.radio-card{position:relative;display:block;cursor:pointer}
-.radio-card input{position:absolute;opacity:0;pointer-events:none}
-.rc-inner{
-  border:1.5px solid var(--line);border-radius:12px;padding:16px 18px;
-  transition:.18s;background:#fff;height:100%;
-}
-.radio-card input:checked + .rc-inner{
-  border-color:var(--blue);background:rgba(27,91,255,.05);
-  box-shadow:0 0 0 3px rgba(27,91,255,.1);
-}
-.radio-card input:focus-visible + .rc-inner{
-  outline:2px solid var(--blue);outline-offset:2px;
-}
-.rc-title{
-  font-family:'Nunito',sans-serif;font-weight:700;color:var(--ink);
-  font-size:.95rem;display:block;
-}
-.rc-sub{font-size:.82rem;color:var(--body);display:block;margin-top:3px}
-
-/* Consent checkboxes */
+/* ---------- Consent checkboxes ---------- */
 .consent{
   display:flex;gap:12px;align-items:flex-start;
   font-size:.88rem;line-height:1.55;font-weight:400;color:var(--body);
+  cursor:pointer;
 }
-.consent input{
+.consent input[type="checkbox"]{
   width:auto;margin-top:3px;flex-shrink:0;
-  accent-color:var(--blue);transform:scale(1.15);
+  accent-color:var(--blue);transform:scale(1.15);cursor:pointer;
+}
+
+/* ---------- Radio card selector ---------- */
+.radio-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2px;
+}
+@media(max-width:560px){.radio-row{grid-template-columns:1fr}}
+
+.radio-card{
+  position:relative;display:block;cursor:pointer;
+}
+.radio-card input{
+  position:absolute;opacity:0;pointer-events:none;width:0;height:0;
+}
+
+.rc-inner{
+  display:flex;align-items:flex-start;gap:14px;
+  border:2px solid var(--line);border-radius:14px;
+  padding:18px 20px;background:#fff;height:100%;min-height:96px;
+  transition:border-color .18s, background .18s, box-shadow .18s;
+}
+.radio-card:hover .rc-inner{
+  border-color:#C9D4F5;background:#FAFBFF;
+}
+
+.rc-radio{
+  width:22px;height:22px;border-radius:50%;
+  border:2px solid var(--line);flex-shrink:0;
+  display:grid;place-items:center;background:#fff;
+  transition:border-color .18s;margin-top:2px;
+}
+.rc-radio::after{
+  content:"";width:10px;height:10px;border-radius:50%;
+  background:var(--blue);transform:scale(0);
+  transition:transform .18s;
+}
+
+.rc-body{
+  display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;
+}
+.rc-title{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:1rem;color:var(--ink);line-height:1.25;
+}
+.rc-sub{
+  font-size:.86rem;color:var(--body);line-height:1.4;
+}
+
+/* Checked state */
+.radio-card input:checked + .rc-inner{
+  border-color:var(--blue);
+  background:rgba(27,91,255,.04);
+  box-shadow:0 0 0 4px rgba(27,91,255,.08);
+}
+.radio-card input:checked + .rc-inner .rc-radio{
+  border-color:var(--blue);
+}
+.radio-card input:checked + .rc-inner .rc-radio::after{
+  transform:scale(1);
+}
+.radio-card input:checked + .rc-inner .rc-title,
+.radio-card input:checked + .rc-inner .rc-sub{
+  color:var(--blue-dark);
+}
+
+/* Keyboard focus */
+.radio-card input:focus-visible + .rc-inner{
+  outline:2px solid var(--blue);outline-offset:3px;
 }
 
 /* Summary lists in sidebar */
